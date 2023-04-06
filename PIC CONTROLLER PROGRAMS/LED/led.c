@@ -1,0 +1,23 @@
+#include<pic.h>
+#define _XTAL_FREQ 400000
+void main()
+{
+char a[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+TRISA=0xff;
+PORTA=0x00;
+TRISB=0x01;
+PORTB=0x00;
+TRISC=0x00;
+PORTC=0x00;
+ANSEL=0x00;ANSELH=0x00;
+int i;
+while(1)
+{
+for(i=0;i<=7;i++)
+{
+if(a[i]==1)
+RC0=1;
+__delay_ms(2000);
+}
+}
+}
